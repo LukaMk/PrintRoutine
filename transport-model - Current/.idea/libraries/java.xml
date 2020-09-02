@@ -1,0 +1,27 @@
+<component name="libraryTable">
+  <library name="java">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/Downloads/itext7-develop.zip!/itext7-develop/barcodes/src/main/java" />
+      <root url="jar://$USER_HOME$/Downloads/itext7-develop.zip!/itext7-develop/barcodes/src/test/java" />
+      <root url="jar://$USER_HOME$/Downloads/itext7-develop.zip!/itext7-develop/forms/src/main/java" />
+      <root url="jar://$USER_HOME$/Downloads/itext7-develop.zip!/itext7-develop/forms/src/test/java" />
+      <root url="jar://$USER_HOME$/Downloads/itext7-develop.zip!/itext7-develop/io/src/main/java" />
+      <root url="jar://$USER_HOME$/Downloads/itext7-develop.zip!/itext7-develop/io/src/test/java" />
+      <root url="jar://$USER_HOME$/Downloads/itext7-develop.zip!/itext7-develop/kernel/src/main/java" />
+      <root url="jar://$USER_HOME$/Downloads/itext7-develop.zip!/itext7-develop/kernel/src/test/java" />
+      <root url="jar://$USER_HOME$/Downloads/itext7-develop.zip!/itext7-develop/layout/src/main/java" />
+      <root url="jar://$USER_HOME$/Downloads/itext7-develop.zip!/itext7-develop/layout/src/test/java" />
+      <root url="jar://$USER_HOME$/Downloads/itext7-develop.zip!/itext7-develop/pdfa/src/main/java" />
+      <root url="jar://$USER_HOME$/Downloads/itext7-develop.zip!/itext7-develop/pdfa/src/test/java" />
+      <root url="jar://$USER_HOME$/Downloads/itext7-develop.zip!/itext7-develop/pdftest/src/main/java" />
+      <root url="jar://$USER_HOME$/Downloads/itext7-develop.zip!/itext7-develop/sign/src/main/java" />
+      <root url="jar://$USER_HOME$/Downloads/itext7-develop.zip!/itext7-develop/sign/src/test/java" />
+      <root url="jar://$USER_HOME$/Downloads/itext7-develop.zip!/itext7-develop/styled-xml-parser/src/main/java" />
+      <root url="jar://$USER_HOME$/Downloads/itext7-develop.zip!/itext7-develop/styled-xml-parser/src/test/java" />
+      <root url="jar://$USER_HOME$/Downloads/itext7-develop.zip!/itext7-develop/svg/src/main/java" />
+      <root url="jar://$USER_HOME$/Downloads/itext7-develop.zip!/itext7-develop/svg/src/test/java" />
+    </SOURCES>
+  </library>
+</component>
