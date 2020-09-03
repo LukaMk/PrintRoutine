@@ -230,8 +230,8 @@ public class DBHandler {
         TextCell c24 = new TextCell(Constants.ADDITIONAL, 39, 852 -653, 583, 852 -510, 200, 100,10, Constants.BLACK, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
         TextCell c25 = new TextCell(Constants.NAMES, 385, 852 -727, 585, 852 -553, 200, 100,10, Constants.BLACK, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
         TextCell c26 = new TextCell(Constants.DATE, 385, 852 -753, 585, 852 -583, 200, 100,10, Constants.BLACK, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
-        TextCell c27 = new TextCell(Constants.SIGNATURE, 434, 852 -773, 585, 852 -595, 200, 100,10, Constants.BLACK, Boolean.FALSE, Boolean.TRUE,font,fontSize, Constants.NOT_CENTERED_TEXT);
-        TextCell c28 = new TextCell(Constants.IMAGE, 300, 664, 582, 650, 30, 10,10, Constants.BLACK, Boolean.FALSE, Boolean.TRUE,font,fontSize, Constants.NOT_CENTERED_TEXT);
+        TextCell c27 = new TextCell(Constants.SIGNATURE, 434, 852 -773, 585, 852 -595, 35, 12,10, Constants.BLACK, Boolean.FALSE, Boolean.TRUE,font,fontSize, Constants.NOT_CENTERED_TEXT);
+        TextCell c28 = new TextCell(Constants.IMAGE, 300, 664, 582, 650, 200, 80,10, Constants.BLACK, Boolean.FALSE, Boolean.TRUE,font,fontSize, Constants.NOT_CENTERED_TEXT);
 
 
         try {
