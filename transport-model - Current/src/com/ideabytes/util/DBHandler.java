@@ -14,7 +14,7 @@ public class DBHandler {
 
     private static SessionFactory sessionFactory;
 
-    public static final String DEFAULT_TEMPLATE = "Shipper";
+    public static final String DEFAULT_TEMPLATE = Constants.DEFAULT_TEMPLATE;
 
     public DBHandler() {
         createSessionFactory();
@@ -71,7 +71,7 @@ public class DBHandler {
         Shipper sh2 = new Shipper("Luka Mac", "22 Street2", null, "Chicago", "New State2", "123456", "Country2", "098-765-4321");
 
 
-        Transport t1 = new Transport(sh1, "Ottawa", TransportType.CARGOONLY, ShipmentType.NONRADIOACTIVE, "Kuala Lumpur", "Handle with care", "George", "Nepean", "July 22 2020", Constants.IMAGE_PATH);
+        Transport t1 = new Transport(sh1, "Ottawa", TransportType.PASENGERANDCARGO, ShipmentType.RADIOACTIVE, "Kuala Lumpur", "Handle with care", "George", "Nepean", "July 22 2020", Constants.SIGNITURE_PATH);
         t1.addGoods(g1);
         t1.addGoods(g2);
         t1.addGoods(g3);
@@ -82,12 +82,12 @@ public class DBHandler {
         t1.addGoods(g9);
         t1.addGoods(g10);
         t1.addGoods(g11);
+        t1.addGoods(g4);
+        t1.addGoods(g5);
 
 
+        Transport t2 = new Transport(sh2, "Hyderabad", TransportType.CARGOONLY, ShipmentType.NONRADIOACTIVE, "Ottawa", "Handle with Care", "Luka", "Hyderabad", "September 20 2020", "Luka M.");
 
-        Transport t2 = new Transport(sh2, "Hyderabad", TransportType.PASENGERANDCARGO, ShipmentType.RADIOACTIVE, "Ottawa", "Handle with Care", "Luka", "Hyderabad", "September 20 2020", "Luka M.");
-        t2.addGoods(g4);
-        t2.addGoods(g5);
 
         Consignee cons = new Consignee("IdeaBytes", "142 GolfLinks", null, "Nepean", "New State", "123456", "Country1", "123-4546-7890", "IdeaBytesLogo.jpg");
 
@@ -202,36 +202,36 @@ public class DBHandler {
     public void createTextCellPlacements() {
         String font = Constants.FONT_ARIEL;
         int fontSize = 10;
-        TextCell c1 = new TextCell(Constants.SHIPPER, 41, 852 -44, 298, 852 -100, 200, 100, 10, Constants.TEST_COLOUR, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
-        TextCell c2 = new TextCell(Constants.CONSIGNEE, 41, 852 -117, 298, 852 -171, 200, 100, 10, Constants.BLACK, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
-        TextCell c3 = new TextCell(Constants.LINE1, 43, 852 -258, 101, 852 -248, 200, 100, 10, Constants.BLACK, Boolean.TRUE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
-        TextCell c4 = new TextCell(Constants.LINE2, 43, 852 -269, 100, 852 -255, 10, 200, 100, Constants.BLACK, Boolean.TRUE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
-        TextCell c5 = new TextCell(Constants.LINE3, 43, 852 -278, 97, 852 -268, 200, 100,10, Constants.BLACK, Boolean.TRUE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
-        TextCell c6 = new TextCell(Constants.LINE4, 115, 852 -258, 150, 852 -248, 200, 100,10, Constants.BLACK, Boolean.TRUE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
-        TextCell c7 = new TextCell(Constants.LINE5, 115, 852 -269, 162, 852 -257, 200, 100,10, Constants.BLACK, Boolean.TRUE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
-        TextCell c8 = new TextCell(Constants.LINE6, 115, 852 -278, 147, 852 -268, 200, 100,10, Constants.BLACK, Boolean.TRUE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
-        TextCell c9 = new TextCell(Constants.AIRDEPARTUE, 170, 852 -223, 300, 852 -273, 200, 100,10, Constants.BLACK, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
+        TextCell c1 = new TextCell(DEFAULT_TEMPLATE, Constants.SHIPPER, 41, 852 -44, 298, 852 -100, 200, 100, 10, Constants.TEST_COLOUR, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
+        TextCell c2 = new TextCell(DEFAULT_TEMPLATE, Constants.CONSIGNEE, 41, 852 -117, 298, 852 -171, 200, 100, 10, Constants.BLACK, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
+        TextCell c3 = new TextCell(DEFAULT_TEMPLATE, Constants.LINE1, 43, 852 -258, 101, 852 -248, 200, 100, 10, Constants.BLACK, Boolean.TRUE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
+        TextCell c4 = new TextCell(DEFAULT_TEMPLATE, Constants.LINE2, 43, 852 -269, 100, 852 -255, 10, 200, 100, Constants.BLACK, Boolean.TRUE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
+        TextCell c5 = new TextCell(DEFAULT_TEMPLATE, Constants.LINE3, 43, 852 -278, 97, 852 -268, 200, 100,10, Constants.BLACK, Boolean.TRUE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
+        TextCell c6 = new TextCell(DEFAULT_TEMPLATE, Constants.LINE4, 112, 852 -258, 147, 852 -248, 200, 100,10, Constants.BLACK, Boolean.TRUE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
+        TextCell c7 = new TextCell(DEFAULT_TEMPLATE, Constants.LINE5, 112, 852 -269, 159, 852 -257, 200, 100,10, Constants.BLACK, Boolean.TRUE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
+        TextCell c8 = new TextCell(DEFAULT_TEMPLATE, Constants.LINE6, 112, 852 -278, 140, 852 -268, 200, 100,10, Constants.BLACK, Boolean.TRUE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
+        TextCell c9 = new TextCell(DEFAULT_TEMPLATE, Constants.AIRDEPARTUE, 170, 852 -223, 300, 852 -273, 200, 100,10, Constants.BLACK, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
         c9.setBold(Boolean.TRUE);
-        TextCell c10 = new TextCell(Constants.AIRDESTINATION, 37, 852 -292, 298, 852 -305, 200, 100,10, Constants.BLACK, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
+        TextCell c10 = new TextCell(DEFAULT_TEMPLATE, Constants.AIRDESTINATION, 37, 852 -292, 298, 852 -305, 200, 100,10, Constants.BLACK, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
         c10.setBold(Boolean.TRUE);
-        TextCell c11 = new TextCell(Constants.WAYBILL, 380, 852 -35, 582, 852 -130, 200, 100,10, Constants.RED, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
-        TextCell c12 = new TextCell(Constants.PAGENUM, 323, 852 -58, 344, 852 -64, 200, 100,10, Constants.BLACK, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
-        TextCell c13 = new TextCell(Constants.PAGEOF, 344, 852 -58, 365, 852 -64, 200, 100,10, Constants.BLACK, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
-        TextCell c14 = new TextCell(Constants.REFERENCE, 420, 852 -83, 583, 852 -92, 200, 100,10, Constants.BLACK, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
-        TextCell c15 = new TextCell(Constants.RADLINE, 312, 852 -311, 412, 852 -301, 200, 100,10, Constants.BLACK, Boolean.TRUE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
-        TextCell c16 = new TextCell(Constants.RADLINE1, 414, 852 -311, 474, 852 -304, 200, 100,10, Constants.BLACK, Boolean.TRUE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
-        TextCell c17 = new TextCell(Constants.UNID, 34, 852 -379, 77, 852 -429, 200, 20,10, Constants.BLACK, Boolean.FALSE, Boolean.FALSE,font,fontSize,Constants.NOT_CENTERED_TEXT);
-        TextCell c18 = new TextCell(Constants.SHIPPINGNAME, 84, 852 -379, 243, 852 -429, 200, 20,10, Constants.BLACK, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
-        TextCell c19 = new TextCell(Constants.CLASS, 260, 852 -379, 500, 852 -429, 200, 20,10, Constants.BLACK, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.CENTERED_TEXT);
-        TextCell c20 = new TextCell(Constants.PACKINGGRP, 305, 852 -379, 500, 852 -429, 200, 20,10, Constants.BLACK, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.CENTERED_TEXT);
-        TextCell c21 = new TextCell(Constants.QUANTITY, 345, 852 -379, 470, 852 -429, 200, 20,10, Constants.BLACK, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
-        TextCell c22 = new TextCell(Constants.PACKING, 470, 852 -379, 600, 852 -429, 200, 20,10, Constants.BLACK, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.CENTERED_TEXT);
-        TextCell c23 = new TextCell(Constants.AUTHORIZATION, 524, 852 -379, 584, 852 -429, 200, 20,10, Constants.BLACK, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
-        TextCell c24 = new TextCell(Constants.ADDITIONAL, 39, 852 -653, 583, 852 -510, 200, 100,10, Constants.BLACK, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
-        TextCell c25 = new TextCell(Constants.NAMES, 385, 852 -727, 585, 852 -553, 200, 100,10, Constants.BLACK, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
-        TextCell c26 = new TextCell(Constants.DATE, 385, 852 -753, 585, 852 -583, 200, 100,10, Constants.BLACK, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
-        TextCell c27 = new TextCell(Constants.SIGNATURE, 434, 852 -773, 585, 852 -595, 200, 100,10, Constants.BLACK, Boolean.FALSE, Boolean.TRUE,font,fontSize, Constants.NOT_CENTERED_TEXT);
-        TextCell c28 = new TextCell(Constants.IMAGE, 300, 664, 582, 650, 30, 10,10, Constants.BLACK, Boolean.FALSE, Boolean.TRUE,font,fontSize, Constants.NOT_CENTERED_TEXT);
+        TextCell c11 = new TextCell(DEFAULT_TEMPLATE, Constants.WAYBILL, 380, 852 -35, 582, 852 -130, 200, 100,10, Constants.RED, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
+        TextCell c12 = new TextCell(DEFAULT_TEMPLATE, Constants.PAGENUM, 323, 852 -58, 344, 852 -64, 200, 100,10, Constants.BLACK, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
+        TextCell c13 = new TextCell(DEFAULT_TEMPLATE, Constants.PAGEOF, 344, 852 -58, 365, 852 -64, 200, 100,10, Constants.BLACK, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
+        TextCell c14 = new TextCell(DEFAULT_TEMPLATE, Constants.REFERENCE, 420, 852 -83, 583, 852 -92, 200, 100,10, Constants.BLACK, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
+        TextCell c15 = new TextCell(DEFAULT_TEMPLATE, Constants.RADLINE, 312, 852 -311, 400, 852 -301, 200, 100,10, Constants.BLACK, Boolean.TRUE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
+        TextCell c16 = new TextCell(DEFAULT_TEMPLATE, Constants.RADLINE1, 414, 852 -311, 474, 852 -304, 200, 100,10, Constants.BLACK, Boolean.TRUE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
+        TextCell c17 = new TextCell(DEFAULT_TEMPLATE, Constants.UNID, 34, 852 -379, 77, 852 -429, 200, 20,10, Constants.BLACK, Boolean.FALSE, Boolean.FALSE,font,fontSize,Constants.NOT_CENTERED_TEXT);
+        TextCell c18 = new TextCell(DEFAULT_TEMPLATE, Constants.SHIPPINGNAME, 84, 852 -379, 243, 852 -429, 200, 20,10, Constants.BLACK, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
+        TextCell c19 = new TextCell(DEFAULT_TEMPLATE, Constants.CLASS, 260, 852 -379, 500, 852 -429, 200, 20,10, Constants.BLACK, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.CENTERED_TEXT);
+        TextCell c20 = new TextCell(DEFAULT_TEMPLATE, Constants.PACKINGGRP, 305, 852 -379, 500, 852 -429, 200, 20,10, Constants.BLACK, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.CENTERED_TEXT);
+        TextCell c21 = new TextCell(DEFAULT_TEMPLATE, Constants.QUANTITY, 345, 852 -379, 470, 852 -429, 200, 20,10, Constants.BLACK, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
+        TextCell c22 = new TextCell(DEFAULT_TEMPLATE, Constants.PACKING, 470, 852 -379, 600, 852 -429, 200, 20,10, Constants.BLACK, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.CENTERED_TEXT);
+        TextCell c23 = new TextCell(DEFAULT_TEMPLATE, Constants.AUTHORIZATION, 524, 852 -379, 584, 852 -429, 200, 20,10, Constants.BLACK, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
+        TextCell c24 = new TextCell(DEFAULT_TEMPLATE, Constants.ADDITIONAL, 39, 852 -653, 583, 852 -510, 200, 100,10, Constants.BLACK, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
+        TextCell c25 = new TextCell(DEFAULT_TEMPLATE, Constants.NAMES, 385, 852 -727, 585, 852 -553, 200, 100,10, Constants.BLACK, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
+        TextCell c26 = new TextCell(DEFAULT_TEMPLATE, Constants.DATE, 385, 852 -753, 585, 852 -583, 200, 100,10, Constants.BLACK, Boolean.FALSE, Boolean.FALSE,font,fontSize, Constants.NOT_CENTERED_TEXT);
+        TextCell c27 = new TextCell(DEFAULT_TEMPLATE, Constants.SIGNATURE, 434, 852 -790, 585, 852 -595, 40, 14,10, Constants.BLACK, Boolean.FALSE, Boolean.TRUE,font,fontSize, Constants.NOT_CENTERED_TEXT);
+        TextCell c28 = new TextCell(DEFAULT_TEMPLATE, Constants.IMAGE, 300, 664, 582, 650, 300, 80,10, Constants.BLACK, Boolean.FALSE, Boolean.TRUE,font,fontSize, Constants.NOT_CENTERED_TEXT);
 
 
         try {
@@ -306,7 +306,14 @@ public class DBHandler {
                     dumpStrikeThrough(cell.getName(), DEFAULT_TEMPLATE, strike);
                 }
                 else if ( cell.getImage()) {
-                    dumpImageName(cell.getName(), DEFAULT_TEMPLATE);
+                    String imagepath = "";
+                    if (cell.getName().equals(Constants.IMAGE)) {
+                        imagepath = Constants.IMAGE_PATH;
+                    }
+                    else if (cell.getName().equals(Constants.SIGNATURE)) {
+                        imagepath = transportData.getSignature();
+                    }
+                    dumpImageName(cell.getName(), imagepath, DEFAULT_TEMPLATE);
                 }
                 else {
                     String lBoxString = lTbString.getStringForBox(cell.getName());
@@ -331,14 +338,11 @@ public class DBHandler {
 
     }
 
-    private void dumpImageName(String name, String defaultTemplate) {
+    private void dumpImageName(String name, String imagePath, String defaultTemplate) {
         TemplateDataRow row = new TemplateDataRow(name,
                 false,
                 1,
-                10,
-                false,
-                Constants.BLACK,
-                Constants.IMAGE_PATH,
+                imagePath,
                 defaultTemplate,
                 false,
                 1);
@@ -351,9 +355,6 @@ public class DBHandler {
         TemplateDataRow row = new TemplateDataRow(name,
                 false,
                 1,
-                10,
-                false,
-                Constants.BLACK,
                 lRowString,
                 defaultTemplate,
                 true,
@@ -367,9 +368,6 @@ public class DBHandler {
         TemplateDataRow row = new TemplateDataRow(name,
                 countLines > 0 ? true : false,
                 countLines,
-                10,
-                false,
-                Constants.BLACK,
                 lBoxString,
                 defaultTemplate,
                 false,

@@ -19,12 +19,6 @@ public class TemplateDataRow {
     private int numlines;
     @Column(name="strikeThrough")
     private boolean strikeThrough;
-    @Column(name="fontsize")
-    private int fontsize;
-    @Column(name="bold")
-    private boolean bold;
-    @Column(name="color")
-    private String color;
     @Column(name="textData")
     private String textData;
     @Column(name="templateName")
@@ -44,9 +38,6 @@ public class TemplateDataRow {
         this.name = name;
         this.multiline = false;
         this.numlines = 1;
-        this.fontsize = 10;
-        this.bold = false;
-        this.color = "BLACK";
         this.textData = "";
         this.templateName = templateName;
         this.multirow = false;
@@ -54,13 +45,10 @@ public class TemplateDataRow {
         this.strikeThrough = true;
     }
 
-    public TemplateDataRow(String name, boolean multiline, int numlines, int fontsize, boolean bold, String color, String textData, String templateName, boolean multiRow, int rowNum) {
+    public TemplateDataRow(String name, boolean multiline, int numlines, String textData, String templateName, boolean multiRow, int rowNum) {
         this.name = name;
         this.multiline = multiline;
         this.numlines = numlines;
-        this.fontsize = fontsize;
-        this.bold = bold;
-        this.color = color;
         this.textData = textData;
         this.templateName = templateName;
         this.multirow = multiRow;
@@ -100,29 +88,9 @@ public class TemplateDataRow {
         this.numlines = numlines;
     }
 
-    public int getFontsize() {
-        return fontsize;
-    }
 
-    public void setFontsize(int fontsize) {
-        this.fontsize = fontsize;
-    }
 
-    public boolean isBold() {
-        return bold;
-    }
 
-    public void setBold(boolean bold) {
-        this.bold = bold;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
 
     public String getTextData() {
         return textData;
@@ -173,17 +141,13 @@ public class TemplateDataRow {
                 multiline == that.multiline &&
                 numlines == that.numlines &&
                 strikeThrough == that.strikeThrough &&
-                fontsize == that.fontsize &&
-                bold == that.bold &&
-                Objects.equals(name, that.name) &&
-                Objects.equals(color, that.color) &&
                 Objects.equals(textData, that.textData) &&
                 Objects.equals(templateName, that.templateName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, multiline, numlines, strikeThrough, fontsize, bold, color, textData, templateName);
+        return Objects.hash(id, name, multiline, numlines, strikeThrough,  textData, templateName);
     }
 
     @Override
@@ -194,9 +158,6 @@ public class TemplateDataRow {
                 ", multiline=" + multiline +
                 ", numlines=" + numlines +
                 ", strikeThrough=" + strikeThrough +
-                ", fontsize=" + fontsize +
-                ", bold=" + bold +
-                ", color='" + color + '\'' +
                 ", textData='" + textData + '\'' +
                 ", templateName='" + templateName + '\'' +
                 '}';

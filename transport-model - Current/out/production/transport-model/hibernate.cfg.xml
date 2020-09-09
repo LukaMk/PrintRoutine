@@ -12,14 +12,14 @@
         <!--
         <property name="connection.username"></property>
         <property name="connection.password"></property>
+        -->
 
 
--->
+        <!-- comment out to stop rebuilding db each time
+        <property name="hibernate.hbm2ddl.auto">create</property>
+        -->
 
         <property name="hibernate.hbm2ddl.auto">create</property>
-
-
-
 
 
     </session-factory>

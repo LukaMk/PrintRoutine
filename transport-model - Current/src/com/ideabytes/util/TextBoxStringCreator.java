@@ -121,31 +121,7 @@ public class TextBoxStringCreator {
             return false;
         }
     }
-    public boolean shouldPrintImage(String cellName) {
-        switch (cellName) {
-            case Constants.LINE1:
-            case Constants.LINE2:
-            case Constants.LINE3: {
-                return transport.getTransportType().equals(TransportType.CARGOONLY);
-            }
-            case Constants.LINE4:
-            case Constants.LINE5:
-            case Constants.LINE6: {
-                return transport.getTransportType().equals(TransportType.PASENGERANDCARGO);
-            }
-            case Constants.RADLINE: {
-                return transport.getShipmentType().equals(ShipmentType.RADIOACTIVE);
-            }
-            case Constants.RADLINE1: {
-                return transport.getShipmentType().equals(ShipmentType.NONRADIOACTIVE);
-            }
 
-            default: {
-
-            }
-            return false;
-        }
-    }
 
     /**
      * Gets string for column

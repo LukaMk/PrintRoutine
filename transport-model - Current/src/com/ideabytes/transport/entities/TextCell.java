@@ -12,6 +12,9 @@ public class TextCell {
     @Column(name="id")
     private Long id;
 
+    @Column(name="templateName")
+    private String templateName;
+
     @Column(name="name")
     private String name;
 
@@ -57,9 +60,10 @@ public class TextCell {
     public TextCell() {
     }
 
-    public TextCell(String name, Integer x1, Integer y1, Integer x2, Integer y2, Integer width,
+    public TextCell(String templateName, String name, Integer x1, Integer y1, Integer x2, Integer y2, Integer width,
                     Integer height, Integer size, String color, Boolean strike,Boolean image,
                     String font, int fontSize, String centeredText) {
+        this.templateName = templateName;
         this.name = name;
         this.x1 = x1;
         this.y1 = y1;
@@ -108,6 +112,14 @@ public class TextCell {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getTemplateName() {
+        return templateName;
+    }
+
+    public void setTemplateName(String templateName) {
+        this.templateName = templateName;
     }
 
     public String getName() {
@@ -198,12 +210,21 @@ public class TextCell {
         this.bold = bold;
     }
 
+    public boolean getImage() {
+        return image;
+    }
+    public void setImage(Boolean image){
+        this.image=image;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TextCell textCell = (TextCell) o;
-        return Objects.equals(id, textCell.id) &&
+        return fontSize == textCell.fontSize &&
+                Objects.equals(id, textCell.id) &&
+                Objects.equals(templateName, textCell.templateName) &&
                 Objects.equals(name, textCell.name) &&
                 Objects.equals(x1, textCell.x1) &&
                 Objects.equals(y1, textCell.y1) &&
@@ -212,38 +233,39 @@ public class TextCell {
                 Objects.equals(width, textCell.width) &&
                 Objects.equals(height, textCell.height) &&
                 Objects.equals(fontsize, textCell.fontsize) &&
+                Objects.equals(image, textCell.image) &&
                 Objects.equals(fontcolor, textCell.fontcolor) &&
                 Objects.equals(strike, textCell.strike) &&
-                Objects.equals(bold, textCell.bold);
+                Objects.equals(bold, textCell.bold) &&
+                Objects.equals(font, textCell.font) &&
+                Objects.equals(centeredText, textCell.centeredText);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, x1, y1, x2, y2, width, height, fontsize, fontcolor, strike, bold);
+        return Objects.hash(id, templateName, name, x1, y1, x2, y2, width, height, fontsize, image, fontcolor, strike, bold, font, fontSize, centeredText);
     }
 
     @Override
     public String toString() {
         return "TextCell{" +
                 "id=" + id +
+                ", templateName='" + templateName + '\'' +
                 ", name='" + name + '\'' +
                 ", x1=" + x1 +
                 ", y1=" + y1 +
                 ", x2=" + x2 +
                 ", y2=" + y2 +
                 ", width=" + width +
-                ", height='" + height + '\'' +
+                ", height=" + height +
                 ", fontsize=" + fontsize +
+                ", image=" + image +
                 ", fontcolor='" + fontcolor + '\'' +
                 ", strike=" + strike +
                 ", bold=" + bold +
+                ", font='" + font + '\'' +
+                ", fontSize=" + fontSize +
+                ", centeredText='" + centeredText + '\'' +
                 '}';
-    }
-
-    public boolean getImage() {
-        return image;
-    }
-    public void setImage(Boolean image){
-        this.image=image;
     }
 }
