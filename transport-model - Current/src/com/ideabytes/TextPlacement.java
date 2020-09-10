@@ -7,7 +7,6 @@ import com.itextpdf.io.font.FontProgram;
 import com.itextpdf.io.image.ImageData;
 import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.colors.Color;
-import com.itextpdf.kernel.colors.ColorConstants;
 import com.itextpdf.kernel.colors.DeviceRgb;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
@@ -150,10 +149,14 @@ public class TextPlacement {
         }
         par.setFont(font).addStyle(normal);
         normal.setFont(String.valueOf(font)).setFontSize(this.numFontSize);
-        float[] black ={0,0,0};
-        if (textColour.equals("RED")) {
-            normal.setFontColor(ColorConstants.RED);
+        String array1[]= textColour.split(",");
+        if (array1.length!=3){
+            System.out.println("Error, color requires 3 values ");
         }
+        int r = Integer.parseInt(array1[0]),g = Integer.parseInt(array1[1]),b = Integer.parseInt(array1[2]);
+
+        Color myColor = new DeviceRgb(r, g, b);
+        par.setFontColor(myColor);
         if (bold) {
             normal.setBold();
         }
